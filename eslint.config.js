@@ -5,6 +5,7 @@ import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 
 export default [
+  { extends: ["eslint:recommended", "plugin:react/recommended"] },
   { ignores: ["dist"] },
   {
     files: ["**/*.{js,jsx}"],
@@ -35,6 +36,7 @@ export default [
       ],
 
       "no-unused-vars": "warn",
+      "react/prop-types": ["warn", { skipUndeclared: false }],
     },
   },
 ];
