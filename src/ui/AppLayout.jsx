@@ -7,10 +7,10 @@ export function AppLayout() {
   const navigation = useNavigation();
   const isLoading = navigation.state === "loading";
   return (
-    <div>
+    <div className="h-screen">
       {isLoading && <Loader />}
       <Header />
-      <main>
+      <main className="">
         <Outlet />
       </main>
 
