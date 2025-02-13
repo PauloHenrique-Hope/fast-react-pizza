@@ -35,30 +35,43 @@ function CreateOrder() {
   const cart = fakeCart;
 
   return (
-    <div>
-      <h2>Ready to order? Let&apos;s go!</h2>
+    <section className="flex flex-col gap-6 px-3 mt-5 sm:px-16 md:w-[800px] xl:w-[800px] xl:mx-auto">
+      <h2 className="text-3xl text-gray-700 sm:text-4xl">
+        Ready to order? Let&apos;s go!
+      </h2>
 
-      <form>
+      <form className="flex flex-col gap-2 xl:gap-4">
         <div>
-          <label>First Name</label>
-          <input type="text" name="customer" required />
+          <input
+            className="p-2 bg-indigo-50 w-full outline-none sm:p-4"
+            type="text"
+            name="customer"
+            required
+            placeholder="First Name"
+          />
         </div>
 
         <div>
-          <label>Phone number</label>
-          <div>
-            <input type="tel" name="phone" required />
-          </div>
+          <input
+            className="p-2 bg-indigo-50 w-full outline-none sm:p-4"
+            type="tel"
+            name="phone"
+            required
+            placeholder="Phone"
+          />
         </div>
 
         <div>
-          <label>Address</label>
-          <div>
-            <input type="text" name="address" required />
-          </div>
+          <input
+            className="p-2 bg-indigo-50 w-full outline-none sm:p-4"
+            type="text"
+            name="address"
+            required
+            placeholder="Address"
+          />
         </div>
 
-        <div>
+        <div className="flex gap-2">
           <input
             type="checkbox"
             name="priority"
@@ -66,14 +79,16 @@ function CreateOrder() {
             // value={withPriority}
             // onChange={(e) => setWithPriority(e.target.checked)}
           />
-          <label htmlFor="priority">Want to yo give your order priority?</label>
+          <label className="text-gray-700 sm:text-xl" htmlFor="priority">
+            Want to yo give your order priority?
+          </label>
         </div>
 
         <div>
           <button>Order now</button>
         </div>
       </form>
-    </div>
+    </section>
   );
 }
 
