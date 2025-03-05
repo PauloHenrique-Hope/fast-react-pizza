@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button } from "../../ui/Button";
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
@@ -72,20 +73,22 @@ function CreateOrder() {
           />
         </div>
 
-        <div className="flex gap-2">
-          <input className="" type="checkbox" name="priority" id="priority" />
+        <div className="flex items-center gap-2">
+          <input
+            className="h-6 w-6 accent-blue-500"
+            type="checkbox"
+            name="priority"
+            id="priority"
+          />
           <label className="text-gray-700 sm:text-xl" htmlFor="priority">
             Want to yo give your order priority?
           </label>
         </div>
 
         <div>
-          <button
-            disabled={isSubmitting}
-            className="cursor-pointer bg-blue-500 text-blue-50 px-4 py-2 rounded-sm transition duration-300hover:bg-blue-600 disabled:cursor-not-allowed"
-          >
-            {isSubmitting ? "Placing order..." : "Order now"}
-          </button>
+          <Button disabled={isSubmitting}>
+            {isSubmitting ? "Placing order.." : "Order now"}
+          </Button>
         </div>
       </form>
     </section>

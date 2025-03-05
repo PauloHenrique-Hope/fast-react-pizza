@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button } from "../../ui/Button";
 
 function CreateUser() {
   const [username, setUsername] = useState("");
@@ -25,8 +26,8 @@ function CreateUser() {
       />
 
       {username !== "" && (
-        <div>
-          <button>Start ordering</button>
+        <div className="pt-2">
+          <Button to="/menu">Start Ordering</Button>
         </div>
       )}
     </form>
