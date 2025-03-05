@@ -32,6 +32,7 @@ const fakeCart = [
 
 function CreateOrder() {
   // const [withPriority, setWithPriority] = useState(false);
+  const [isSubmitting, setisSubmitting] = useState(false);
   const cart = fakeCart;
 
   return (
@@ -72,20 +73,19 @@ function CreateOrder() {
         </div>
 
         <div className="flex gap-2">
-          <input
-            type="checkbox"
-            name="priority"
-            id="priority"
-            // value={withPriority}
-            // onChange={(e) => setWithPriority(e.target.checked)}
-          />
+          <input className="" type="checkbox" name="priority" id="priority" />
           <label className="text-gray-700 sm:text-xl" htmlFor="priority">
             Want to yo give your order priority?
           </label>
         </div>
 
         <div>
-          <button>Order now</button>
+          <button
+            disabled={isSubmitting}
+            className="cursor-pointer bg-blue-500 text-blue-50 px-4 py-2 rounded-sm transition duration-300hover:bg-blue-600 disabled:cursor-not-allowed"
+          >
+            {isSubmitting ? "Placing order..." : "Order now"}
+          </button>
         </div>
       </form>
     </section>
