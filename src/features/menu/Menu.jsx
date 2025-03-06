@@ -29,7 +29,7 @@ function Menu() {
       <ul ref={sliderRef} className="keen-slider">
         {menu.map((pizza) => (
           <li className="keen-slider__slide number-slide1" key={pizza.id}>
-            <div className="flex flex-col px-2 py-2 gap-2 mt-10 sm:mt-16 ">
+            <div className="flex flex-col px-2  gap-2 mt-5 sm:mt-16 ">
               <img
                 className="rounded-2xl "
                 src={pizza.imageUrl}
