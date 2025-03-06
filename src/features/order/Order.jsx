@@ -5,6 +5,7 @@ import {
   formatCurrency,
   formatDate,
 } from "../../utils/helpers";
+import OrderItem from "./OrderItem";
 
 const order = {
   id: "ABCDEF",
@@ -35,6 +36,34 @@ const order = {
       unitPrice: 15,
       totalPrice: 15,
     },
+    {
+      pizzaId: 10,
+      name: "Romana",
+      quantity: 1,
+      unitPrice: 15,
+      totalPrice: 15,
+    },
+    // {
+    //   pizzaId: 20,
+    //   name: "Romana",
+    //   quantity: 1,
+    //   unitPrice: 15,
+    //   totalPrice: 15,
+    // },
+    // {
+    //   pizzaId: 30,
+    //   name: "Romana",
+    //   quantity: 1,
+    //   unitPrice: 15,
+    //   totalPrice: 15,
+    // },
+    // {
+    //   pizzaId: 40,
+    //   name: "Romana",
+    //   quantity: 1,
+    //   unitPrice: 15,
+    //   totalPrice: 15,
+    // },
   ],
   position: "-9.000,38.000",
   orderPrice: 95,
@@ -52,32 +81,49 @@ function Order() {
     estimatedDelivery,
     cart,
   } = order;
+
   const deliveryIn = calcMinutesLeft(estimatedDelivery);
 
-  return (
-    <div>
-      <div>
-        <h2>Status</h2>
+  const totalPizzaPrice = cart.reduce((sum, item) => sum + item.totalPrice, 0);
 
-        <div>
-          {priority && <span>Priority</span>}
-          <span>{status} order</span>
+  return (
+    <div className="flex flex-col mx-auto gap-2 p-4 md:w-[700px]">
+      <div className="flex flex-col justify-center items-center gap-2">
+        <h2 className="font-semibold text-xl">Order #{id} Status</h2>
+
+        <div className="flex gap-3">
+          {priority && (
+            <span className="bg-red-500 text-red-100 px-2 py-2 rounded-sm">
+              Priority
+            </span>
+          )}
+          <span className="bg-green-500 text-green-100 px-2 py-2 rounded-sm">
+            Preparing order
+          </span>
         </div>
       </div>
 
-      <div>
-        <p>
+      {/* <p>
           {deliveryIn >= 0
             ? `Only ${calcMinutesLeft(estimatedDelivery)} minutes left 😃`
             : "Order should have arrived"}
-        </p>
-        <p>(Estimated delivery: {formatDate(estimatedDelivery)})</p>
-      </div>
+        </p> */}
+      <p className="text-center">
+        (Estimated delivery: {formatDate(estimatedDelivery)})
+      </p>
 
-      <div>
-        <p>Price pizza: {formatCurrency(orderPrice)}</p>
+      <ul className="flex flex-col gap-2 divide-y divide-gray-200 overflow-auto h-20 sm:h-52">
+        {cart.map((item) => (
+          <OrderItem item={item} key={item.pizzaId} />
+        ))}
+      </ul>
+
+      <div className="flex flex-col gap-1.5 mt-5 ">
+        <p>Price pizza: {formatCurrency(totalPizzaPrice)}</p>
         {priority && <p>Price priority: {formatCurrency(priorityPrice)}</p>}
-        <p>To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}</p>
+        <p className="font-bold ">
+          To pay on delivery: {formatCurrency(totalPizzaPrice + priorityPrice)}
+        </p>
       </div>
     </div>
   );

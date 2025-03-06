@@ -4,21 +4,21 @@ import CartItem from "./CartItem";
 
 const fakeCart = [
   {
-    pizzaId: 12,
+    pizzaId: 1,
     name: "Mediterranean",
     quantity: 2,
     unitPrice: 16,
     totalPrice: 32,
   },
   {
-    pizzaId: 6,
+    pizzaId: 2,
     name: "Vegetale",
     quantity: 1,
     unitPrice: 13,
     totalPrice: 13,
   },
   {
-    pizzaId: 11,
+    pizzaId: 3,
     name: "Spinach and Mushroom",
     quantity: 1,
     unitPrice: 15,
@@ -26,7 +26,7 @@ const fakeCart = [
   },
 
   {
-    pizzaId: 12,
+    pizzaId: 4,
     name: "Spinach and Mushroom",
     quantity: 1,
     unitPrice: 15,
@@ -34,7 +34,7 @@ const fakeCart = [
   },
 
   {
-    pizzaId: 13,
+    pizzaId: 5,
     name: "Spinach and Mushroom",
     quantity: 1,
     unitPrice: 15,

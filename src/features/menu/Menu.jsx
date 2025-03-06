@@ -37,7 +37,7 @@ function Menu() {
               />
               <p className="text-xl text-gray-600">{pizza.name}</p>
               <span className="text-xl text-gray-800">${pizza.unitPrice}</span>
-              <Button type="secondary">Add to cart</Button>
+              <Button type="primary">Add to cart</Button>
             </div>
           </li>
         ))}
