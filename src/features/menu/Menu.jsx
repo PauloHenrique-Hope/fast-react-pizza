@@ -1,8 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 import { getMenu } from "../../services/apiRestaurant";
-import MenuItem from "./MenuItem";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
+import { Button } from "../../ui/Button";
 
 function Menu() {
   const menu = useLoaderData();
@@ -26,16 +26,10 @@ function Menu() {
   });
   return (
     <>
-      {/* <ul>
-        {menu.map((pizza) => (
-          <MenuItem pizza={pizza} key={pizza.id} />
-        ))}
-      </ul> */}
-
       <ul ref={sliderRef} className="keen-slider">
         {menu.map((pizza) => (
           <li className="keen-slider__slide number-slide1" key={pizza.id}>
-            <div className="flex flex-col  gap-3 mt-10 sm:mt-16 px-2">
+            <div className="flex flex-col px-2 py-2 gap-2 mt-10 sm:mt-16 ">
               <img
                 className="rounded-2xl "
                 src={pizza.imageUrl}
@@ -43,6 +37,7 @@ function Menu() {
               />
               <p className="text-xl text-gray-600">{pizza.name}</p>
               <span className="text-xl text-gray-800">${pizza.unitPrice}</span>
+              <Button type="secondary">Add to cart</Button>
             </div>
           </li>
         ))}
