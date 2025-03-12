@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Username } from "../features/user/UserName";
 
 export function Header() {
   return (
@@ -6,7 +7,8 @@ export function Header() {
       <Link className="text-6xl font-bold sm:text-8xl" to="/">
         Fast React Pizza
       </Link>
-      <p className="text-xl font-semibold underline sm:text-2xl">Satoko</p>
+      <Username />
+      {/* <p className="text-xl font-semibold underline sm:text-2xl">Satoko</p> */}
     </header>
   );
 }

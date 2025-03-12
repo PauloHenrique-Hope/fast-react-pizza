@@ -6,7 +6,7 @@ import { Button } from "../../ui/Button";
 
 function Menu() {
   const menu = useLoaderData();
-  console.log(menu);
+
   const [sliderRef] = useKeenSlider({
     breakpoints: {
       "(min-width: 375px)": {
@@ -48,7 +48,7 @@ function Menu() {
 
 export async function loader() {
   const menu = await getMenu();
-  console.log(menu);
+
   return menu;
 }
 
