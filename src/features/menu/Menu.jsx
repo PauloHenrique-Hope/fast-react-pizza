@@ -1,11 +1,29 @@
 import { useLoaderData } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { getMenu } from "../../services/apiRestaurant";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { Button } from "../../ui/Button";
+import { addItem } from "../cart/cartSlice";
 
 function Menu() {
   const menu = useLoaderData();
+
+  const dispatch = useDispatch();
+
+  function handleAddToCart(pizza) {
+    const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
+    const newItem = {
+      pizzaId: id,
+      name,
+      quantity: 1,
+      unitPrice,
+      totalPrice: unitPrice * 1,
+    };
+    dispatch(addItem(newItem));
+    console.log(newItem);
+    console.log("clicked");
+  }
 
   const [sliderRef] = useKeenSlider({
     breakpoints: {
@@ -37,7 +55,9 @@ function Menu() {
               />
               <p className="text-xl text-gray-600">{pizza.name}</p>
               <span className="text-xl text-gray-800">${pizza.unitPrice}</span>
-              <Button type="primary">Add to cart</Button>
+              <Button onClick={() => handleAddToCart(pizza)} type="primary">
+                Add to cart
+              </Button>
             </div>
           </li>
         ))}
