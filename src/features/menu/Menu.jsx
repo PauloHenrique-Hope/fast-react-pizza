@@ -22,7 +22,6 @@ function Menu() {
     };
     dispatch(addItem(newItem));
     console.log(newItem);
-    console.log("clicked");
   }
 
   const [sliderRef] = useKeenSlider({
